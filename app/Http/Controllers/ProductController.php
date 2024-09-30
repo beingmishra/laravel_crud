@@ -73,4 +73,9 @@ class ProductController extends Controller
         return back()->withSuccess("Product deleted successfully!");
     }
 
+    public function view($id) {
+        $product = Product::where('id', $id)->first();
+        return view('products.view', ['product'=>$product]);
+    }
+
 }

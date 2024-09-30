@@ -18,7 +18,7 @@
             </thead>
             <tbody>
                 @foreach($products as $product)
-                <tr>
+                <tr onclick="location.href='products/{{$product->id}}/view';" >
                     <td>{{$loop->index+1}}</td>
                     <td>{{$product->name}}</td>
                     <td>{{$product->description}}</td> 
