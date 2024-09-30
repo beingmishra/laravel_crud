@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,28 +8,46 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
-<body>  
+
+<body>
 
     <nav class="navbar navbar-expand-sm bg-dark">
 
-    <div class="container-fluid">
-    <!-- Links -->
-    <ul class="navbar-nav">
-        <li class="nav-item">
-        <a class="nav-link text-light" href="/">Products</a>
-        </li>
-    </ul>
-    </div>
+        <div class="container-fluid">
+            <!-- Links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="/">Products</a>
+                </li>
+            </ul>
+        </div>
 
     </nav>
 
     <div class="container">
 
-    <div class="text-right">
-        <a href="products/create" class="btn btn-dark mt-2">New product</a>
+        <div class="d-flex justify-content-end">
+            <a href="products/create" class="btn btn-dark mt-2">New product</a>
+        </div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>S.No.</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($products as $product)
+                <tr>
+                    <td>{{$loop->index+1}}</td>
+                    <td>{{$product->name}}</td>
+                    <td>{{$product->description}}</td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
-
-        <h1>Products</h1>
-    </div>  
 </body>
+
 </html>
