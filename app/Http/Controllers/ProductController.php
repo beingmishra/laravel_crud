@@ -17,6 +17,13 @@ class ProductController extends Controller
 
     public function store(Request $request) {
 
+        // validate data
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'image' => 'required'
+        ]);
+
         // move file to public folder
         $imageName = time().'.'.$request->image->extension();
         $request->image->move(public_path('products'), $imageName);
@@ -27,7 +34,7 @@ class ProductController extends Controller
         $product->name = $request->name;
         $product->description = $request->description;
         $product->save();
-        return back();
+        return back()->withSuccess("Product created successfully!");
     }
 
 }
