@@ -27,7 +27,7 @@
     <div class="container">
 
         <div class="d-flex justify-content-end">
-            <a href="products/create" class="btn btn-dark mt-2">New product</a>
+            <a href="products/create" class="btn btn-dark mt-2 mb-5">New product</a>
         </div>
         <table class="table table-hover">
             <thead>
@@ -35,6 +35,7 @@
                     <th>S.No.</th>
                     <th>Name</th>
                     <th>Description</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -42,7 +43,11 @@
                 <tr>
                     <td>{{$loop->index+1}}</td>
                     <td>{{$product->name}}</td>
-                    <td>{{$product->description}}</td>
+                    <td>{{$product->description}}</td> 
+                    <td>
+                        <a href="products/{{$product->id}}/edit" class="btn btn-dark btn-small">Edit</a>
+                        
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
